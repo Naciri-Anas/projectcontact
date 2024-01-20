@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContactController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MicroserviceApplication</a> &gt; <a href="index.source.html" class="el_package">com.app.controller</a> &gt; <span class="el_source">ContactController.java</span></div><h1>ContactController.java</h1><pre class="source lang-java linenums">// It handles incoming HTTP requests to the API endpoints. 
+
+package com.app.controller;
+
+import java.util.List;
+
+import com.app.dto.ContactRequest;
+import com.app.model.Contact;
+import com.app.service.ContactService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+
+
+@RestController
+@CrossOrigin(origins = &quot;http://localhost:4200&quot;)
+@RequestMapping(&quot;/api/contact&quot;)
+<span class="fc" id="L20">public class ContactController {</span>
+	@Autowired
+    ContactService contactService;
+
+	@PostMapping(&quot;/add&quot;)
+    public ResponseEntity&lt;Contact&gt; addContact(@RequestBody ContactRequest contactRequestDTO) {
+<span class="nc" id="L26">        Contact contact = contactService.addContact(contactRequestDTO);</span>
+<span class="nc" id="L27">        return ResponseEntity.status(HttpStatus.CREATED).body(contact);</span>
+    }
+    
+    @DeleteMapping(&quot;/remove/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; removeContact(@PathVariable(&quot;id&quot;) Long contactId) {
+<span class="nc" id="L32">        contactService.deleteContact(contactId);</span>
+<span class="nc" id="L33">        return ResponseEntity.noContent().build();</span>
+    }
+    
+    @PutMapping(&quot;/update/{id}&quot;)
+    public ResponseEntity&lt;Contact&gt; updateContact(
+            @PathVariable(&quot;id&quot;) Long contactId,
+            @RequestBody ContactRequest contactRequestDTO
+    ) {
+<span class="nc" id="L41">        Contact contact = contactService.updateContact(contactId, contactRequestDTO);</span>
+<span class="nc" id="L42">        return ResponseEntity.ok(contact);</span>
+    }
+
+    @GetMapping
+    public ResponseEntity&lt;List&lt;Contact&gt;&gt; getAllContacts() {
+<span class="nc" id="L47">        List&lt;Contact&gt; contacts = contactService.getAllContact();</span>
+<span class="nc" id="L48">        return ResponseEntity.ok(contacts);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

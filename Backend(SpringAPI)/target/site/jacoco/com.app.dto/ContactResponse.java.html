@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContactResponse.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MicroserviceApplication</a> &gt; <a href="index.source.html" class="el_package">com.app.dto</a> &gt; <span class="el_source">ContactResponse.java</span></div><h1>ContactResponse.java</h1><pre class="source lang-java linenums">package com.app.dto;
+
+import com.app.model.Contact;
+import org.springframework.stereotype.Component;
+
+
+
+
+@Component
+<span class="fc" id="L10">public class ContactResponse {</span>
+private Contact contact;
+private String status;
+
+public Contact getContact() {
+<span class="nc" id="L15">	return contact;</span>
+}
+public void setContact(Contact contact) {
+<span class="nc" id="L18">	this.contact = contact;</span>
+<span class="nc" id="L19">}</span>
+public String getStatus() {
+<span class="nc" id="L21">	return status;</span>
+}
+public void setStatus(String status) {
+<span class="nc" id="L24">	this.status = status;</span>
+<span class="nc" id="L25">}</span>
+@Override
+public String toString() {
+<span class="nc" id="L28">	return &quot;ContactResponse [status=&quot; + status + &quot;]&quot;;</span>
+}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Contact.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MicroserviceApplication</a> &gt; <a href="index.source.html" class="el_package">com.app.model</a> &gt; <span class="el_source">Contact.java</span></div><h1>Contact.java</h1><pre class="source lang-java linenums">package com.app.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+//a class can be mapped to a table.
+@Entity
+public class Contact {
+//primary key of current entity
+@Id
+
+//specify how the primary key should be generated
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+private Long id;
+private String name;
+private String address;
+private Long mobile;
+
+// Constructor
+public Contact() {
+<span class="fc" id="L24">	super();</span>
+<span class="fc" id="L25">	this.id = id;</span>
+<span class="fc" id="L26">	this.name = name;</span>
+<span class="fc" id="L27">	this.address = address;</span>
+<span class="fc" id="L28">	this.mobile = mobile;</span>
+
+<span class="fc" id="L30">}</span>
+
+
+
+	// getters and setters
+public Long getId() {
+<span class="nc" id="L36">	return id;</span>
+}
+public void setId(Long id) {
+<span class="nc" id="L39">	this.id = id;</span>
+<span class="nc" id="L40">}</span>
+
+public String getName() {
+<span class="nc" id="L43">	return name;</span>
+}
+public void setName(String name) {
+<span class="nc" id="L46">	this.name = name;</span>
+<span class="nc" id="L47">}</span>
+
+public String getAddress() {
+<span class="nc" id="L50">	return address;</span>
+}
+public void setAddress(String address) {
+<span class="nc" id="L53">	this.address = address;</span>
+<span class="nc" id="L54">}</span>
+
+public Long getMobile() {
+<span class="nc" id="L57">	return mobile;</span>
+}
+public void setMobile(Long mobile) {
+<span class="nc" id="L60">	this.mobile = mobile;</span>
+<span class="nc" id="L61">}</span>
+
+// toString method to print all customer details in a single line
+@Override
+public String toString() {
+<span class="nc" id="L66">	return &quot;Contact [id=&quot; + id + &quot;, name=&quot; + name + &quot;, address=&quot; + address + &quot;, mobile=&quot; + mobile + &quot;]&quot;;</span>
+}
+
+
+	public void setMobileNumber(Long mobileNumber) {
+	//this is a set method so it can be used in the contact service
+
+<span class="nc" id="L73">	}</span>
+}
+
+// It is used to represent a customer entity.
+// It contains all the information about the customer.
+// It is a fully encapsulated class.
+// It contains only fields and methods to set and retrieve data.
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

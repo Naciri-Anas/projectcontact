@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContactRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MicroserviceApplication</a> &gt; <a href="index.source.html" class="el_package">com.app.dto</a> &gt; <span class="el_source">ContactRequest.java</span></div><h1>ContactRequest.java</h1><pre class="source lang-java linenums">package com.app.dto;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class ContactRequest {
+	private String name;
+    private String address;
+    private Long mobileNumber;
+
+<span class="fc" id="L11">	public ContactRequest() {}</span>
+
+<span class="nc" id="L13">	public ContactRequest(String name, String address, Long mobileNumber) {</span>
+<span class="nc" id="L14">		this.name = name;</span>
+<span class="nc" id="L15">		this.address = address;</span>
+<span class="nc" id="L16">		this.mobileNumber = mobileNumber;</span>
+<span class="nc" id="L17">	}</span>
+
+	public String getName() {
+<span class="nc" id="L20">		return name;</span>
+	}
+	public void setName(String name) {
+<span class="nc" id="L23">		this.name = name;</span>
+<span class="nc" id="L24">	}</span>
+
+	public String getAddress() {
+<span class="nc" id="L27">		return address;</span>
+	}
+	public void setAddress(String address) {
+<span class="nc" id="L30">		this.address = address;</span>
+<span class="nc" id="L31">	}</span>
+
+	public Long getMobileNumber() {
+<span class="nc" id="L34">		return mobileNumber;</span>
+	}
+	public void setMobileNumber(Long mobileNumber) {
+<span class="nc" id="L37">		this.mobileNumber= mobileNumber;</span>
+<span class="nc" id="L38">	}</span>
+
+	@Override
+	public String toString() {
+<span class="nc" id="L42">		return &quot;ContactRequest [name=&quot; + name + &quot;, address=&quot; + address + &quot;, mobileNumber=&quot; + mobileNumber + &quot;]&quot;;</span>
+	}
+}
+
+
+// DTOs allow you to control what data is sent to the client and received from the client, providing a level of abstraction and flexibility.
+// DTOs provides flexibility and control over the data exchanged in your API, ensuring a clear separation between the internal data representation and the API contract.
+// It is used for getting customer details from client in controller class.
+// This will be converted into JSON format by Spring Boot automatically when we send it as response.
+// We can use this object directly without any conversion or mapping code because its already mapped with JSON format by Spring Boot.
+
+// It is used for creating new customer
+//In the CustomerRequestDTO, we include the fields name, address, and mobileNumber that are required for creating a new customer.
+//wE can map the incoming request data to the CustomerRequestDTO object, validate it, and then transform it to the Customer entity before persisting it to the database
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

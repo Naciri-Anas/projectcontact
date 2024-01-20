@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContactService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MicroserviceApplication</a> &gt; <a href="index.source.html" class="el_package">com.app.service</a> &gt; <span class="el_source">ContactService.java</span></div><h1>ContactService.java</h1><pre class="source lang-java linenums">//It contains business logic to store,retrieve,delete and update.
+package com.app.service;
+
+import com.app.dto.ContactRequest;
+import com.app.model.Contact;
+
+import com.app.repository.ContactRepository;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+<span class="fc" id="L18">public class ContactService {</span>
+    
+    @Autowired
+    private ContactRepository contactRepository;
+    
+    public Contact addContact(ContactRequest contactRequestDTO) {
+<span class="nc" id="L24">        Contact contact = new Contact();</span>
+<span class="nc" id="L25">        contact.setName(contactRequestDTO.getName());</span>
+<span class="nc" id="L26">        contact.setAddress(contactRequestDTO.getAddress());</span>
+<span class="nc" id="L27">        contact.setMobile(contactRequestDTO.getMobileNumber());</span>
+        
+<span class="nc" id="L29">        return contactRepository.save(contact);</span>
+    }
+    
+    public void deleteContact(Long contactId) {
+<span class="nc" id="L33">        contactRepository.deleteById(contactId);</span>
+<span class="nc" id="L34">    }</span>
+    
+    public Contact updateContact(Long contactId, ContactRequest contactRequestDTO) {
+<span class="nc" id="L37">        Optional&lt;Contact&gt; optionalContact = contactRepository.findById(contactId);</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        if (optionalContact.isPresent()) {</span>
+<span class="nc" id="L39">            Contact contact = optionalContact.get();</span>
+<span class="nc" id="L40">            contact.setName(contactRequestDTO.getName());</span>
+<span class="nc" id="L41">            contact.setAddress(contactRequestDTO.getAddress());</span>
+<span class="nc" id="L42">            contact.setMobileNumber(contactRequestDTO.getMobileNumber());</span>
+            
+<span class="nc" id="L44">            return contactRepository.save(contact);</span>
+        } else {
+<span class="nc" id="L46">            throw new IllegalArgumentException(&quot;Contact not found with ID: &quot; + contactId);</span>
+        }
+    }
+    
+    public List&lt;Contact&gt; getAllContact() {
+<span class="nc" id="L51">        return contactRepository.findAll();</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
